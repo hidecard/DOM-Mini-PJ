@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        .gallery img {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+        }
+        .modal img {
+            width: 500px;
+            height: auto;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <img src="./img/apple.jpg" alt="Image 1" onclick="openModal(this)">
+        <img src="./img/pip.png" alt="Image 2" onclick="openModal(this)">
+        <img src="./img/water.jpeg" alt="Image 3" onclick="openModal(this)">
+    </div>
+
+    <div id="modal" class="modal">
+        <span class="close" onclick="closeModal()">×</span>
+        <img id="modalImage" src="" alt="">
+    </div>
+
+    <script>
+        function openModal(image) {
+            document.getElementById("modal").style.display = "block";
+            document.getElementById("modalImage").src = image.src;
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+    </script>
+</body>
+</html>
